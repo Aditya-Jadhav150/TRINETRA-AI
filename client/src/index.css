@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-police-darkest text-police-text font-sans antialiased;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(14, 23, 38, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card {
+  background: rgba(20, 32, 54, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 210, 255, 0.08);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(0, 210, 255, 0.35);
+  box-shadow: 0 4px 25px 0 rgba(0, 210, 255, 0.15), 0 0 10px rgba(0, 210, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.glass-input {
+  background: rgba(8, 12, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-input:focus {
+  border-color: #00d2ff;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+  outline: none;
+}
+
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glow-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+
+.glow-btn:hover::after {
+  left: 125%;
+}
+
+/* Custom Scrollbar for Cyberpunk theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080c14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.5);
+}
+
+/* Operational micro-animations */
+@keyframes connectionPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px currentColor;
+  }
+}
+
+.animate-pulse-live {
+  animation: connectionPulse 2s infinite ease-in-out;
+}
+
+@keyframes threatAlert {
+  0%, 100% {
+    border-color: rgba(225, 29, 72, 0.15);
+    background-color: rgba(225, 29, 72, 0.03);
+  }
+  50% {
+    border-color: rgba(225, 29, 72, 0.65);
+    background-color: rgba(225, 29, 72, 0.08);
+    box-shadow: 0 0 15px rgba(225, 29, 72, 0.15);
+  }
+}
+
+.animate-threat-card {
+  animation: threatAlert 3s infinite ease-in-out;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.cyber-scanner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.4), transparent);
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+}
+
+/* React Flow shortest path animated flow light */
+.react-flow__edge-path.animated {
+  stroke-dasharray: 8;
+  animation: flow-dash 0.8s linear infinite;
+  stroke-linecap: round;
+}
+
+@keyframes flow-dash {
+  from {
+    stroke-dashoffset: 16;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

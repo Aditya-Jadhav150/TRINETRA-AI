@@ -1,0 +1,30 @@
+# Credentials & Environment Variables
+.env
+backend/.env
+client/.env
+Neo4j-375bf7ba-Created-2026-07-13.txt
+trinetra-vector-db_api_key.txt
+
+# Python
+.venv/
+venv/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Node / Frontend
+client/node_modules/
+client/dist/
+client/dist-ssr/
+*.local
+
+# Logs and OS files
+logs.txt
+ps.txt
+*.log
+.DS_Store
+Thumbs.db

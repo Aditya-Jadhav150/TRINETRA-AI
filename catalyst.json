@@ -1,0 +1,11 @@
+{
+  "client": {
+    "source": "client",
+    "name": "trinetra-client"
+  },
+  "appsail": {
+    "targets": [
+      "backend"
+    ]
+  }
+}
