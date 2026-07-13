@@ -159,6 +159,7 @@ const AnalyticsPage: React.FC = () => {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0e1726', borderColor: 'rgba(255,255,255,0.1)', color: '#fff' }}
                   labelStyle={{ color: '#00d2ff' }}
+                  cursor={{ stroke: 'rgba(0, 240, 255, 0.2)', strokeWidth: 1.5 }}
                 />
                 <Area type="monotone" dataKey="crimes" stroke="#00d2ff" fillOpacity={1} fill="url(#cyanGrad)" />
                 <defs>
@@ -189,6 +190,7 @@ const AnalyticsPage: React.FC = () => {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0e1726', borderColor: 'rgba(255,255,255,0.1)', color: '#fff' }}
                   labelStyle={{ color: '#00d2ff' }}
+                  cursor={{ fill: 'rgba(255, 255, 255, 0.04)' }}
                 />
                 <Bar dataKey="count" fill="#0052ff" barSize={30}>
                   {categories.map((entry, index) => (

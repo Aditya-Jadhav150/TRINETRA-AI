@@ -171,6 +171,7 @@ const ForecastingPage: React.FC = () => {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0e1726', borderColor: 'rgba(255,255,255,0.1)', color: '#fff' }}
                   labelStyle={{ color: '#00f0ff' }}
+                  cursor={{ stroke: 'rgba(0, 240, 255, 0.2)', strokeWidth: 1.5 }}
                 />
                 
                 {/* Dotted Confidence boundaries */}

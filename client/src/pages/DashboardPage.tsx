@@ -376,6 +376,7 @@ const DashboardPage: React.FC = () => {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0e1726', borderColor: 'rgba(255,255,255,0.1)', color: '#fff', fontFamily: 'JetBrains Mono', fontSize: '10px' }}
                   labelStyle={{ color: '#00f0ff' }}
+                  cursor={{ fill: 'rgba(255, 255, 255, 0.04)' }}
                 />
                 <Bar dataKey="count" fill="url(#cyanGradient)">
                   {districts.map((entry, index) => (
