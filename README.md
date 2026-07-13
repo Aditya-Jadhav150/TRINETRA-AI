@@ -53,7 +53,7 @@ The platform supports dynamic, full-application localization (English / Kannada)
 - Python 3.11+
 - Node.js 18+
 
-### 1. Backend Setup
+### 1. Backend Setup & Environment Variables
 1. Navigate to the backend directory:
    ```bash
    cd backend
@@ -67,11 +67,23 @@ The platform supports dynamic, full-application localization (English / Kannada)
    ```bash
    pip install -r requirements.txt
    ```
-4. Run database initialization and seeding:
+4. Configure your environment variables:
+   - Copy the environment variables template:
+     ```bash
+     cp .env.example .env
+     ```
+   - Open the newly created `backend/.env` file and insert the correct connection strings for your cloud databases:
+     * **DATABASE_URL**: Your Supabase PostgreSQL connection string (use the Session Pooler domain over IPv4 on port 5432).
+     * **NEO4J_URI / USER / PASSWORD**: Your Neo4j AuraDB instance coordinates.
+     * **QDRANT_URL / API_KEY**: Your Qdrant Cloud cluster URL and API key.
+     * **REDIS_URL**: Your Upstash Redis connection string.
+     * **JWT_SECRET / JWT_REFRESH_SECRET**: Random strings of your choice for signing security tokens.
+
+5. Run database initialization and seeding:
    ```bash
    python -c "from app.seed import seed_database; seed_database()"
    ```
-5. Start the FastAPI development server:
+6. Start the FastAPI development server:
    ```bash
    uvicorn app.main:app --reload
    ```
@@ -93,4 +105,4 @@ The platform supports dynamic, full-application localization (English / Kannada)
 ---
 
 ## 🛡️ Security & Environment Settings
-All environment variables and connection strings (Supabase PostgreSQL, Neo4j Aura, Qdrant Cloud, Upstash Redis) are stored inside the `backend/.env` file. These configurations are ignored from source control by the root `.gitignore` to prevent any accidental credential leaks.
+All environment variables and connection strings are stored inside the local, uncommitted `backend/.env` file. These configurations are ignored from source control by the root `.gitignore` to prevent any accidental credential leaks. A template structure is provided in `backend/.env.example`.
